@@ -238,12 +238,6 @@ for i in "${OVPN_PUSH[@]}"; do
     echo push \"$i\" >> "$conf"
 done
 
-# Optional OTP authentication support
-if [ -n "$OVPN_OTP_AUTH" ]; then
-    echo -e "\n\n# Enable OTP+PAM for user authentication" >> "$conf"
-    echo "plugin /usr/lib/openvpn/plugins/openvpn-plugin-auth-pam.so openvpn" >> "$conf"
-fi
-
 set +e
 
 # Clean-up duplicate configs
